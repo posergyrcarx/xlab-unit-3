@@ -6,6 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Test_1.unity
-    guid: 44fa1c2e31cad4d48a739d0683487294
+    path: Assets/Scenes/Preloader.unity
+    guid: 4fbb99064d174e6408f99899c8a43400
+  - enabled: 1
+    path: Assets/Scenes/Scenes/LevelGolf.unity
+    guid: 87f987b9ac5d89140a9807dab8ad93c9
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
