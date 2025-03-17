@@ -45,8 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c42b26cc61d688f4186d9d68632f22f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMeshProUGUI: {fileID: 0}
-  printApplicationInfo: 1
+  developerGameInfo: {fileID: 0}
+  interfaceVersion: {fileID: 0}
+  printApplicationInfo: 0
+  showInfoInScene: 0
 --- !u!114 &3455494471729246420
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,11 +6,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SceneLoadManager sceneLoadManager;
     [SerializeField] private UIScreenManager uisManager;
 
-    public static event Action<GameManager> OnPreloaderRunningEvent;
-    public static event Action<GameManager> OnMainMenuRunningEvent;
-    public static event Action<GameManager> OnSettingsRunningEvent;
-    public static event Action<GameManager> OnGameplayEvent;
-    public static event Action<GameManager> OnGameOverEvent;
+    public static event Action OnPreloaderRunningEvent;
+    public static event Action OnMainMenuRunningEvent;
+    public static event Action OnSettingsRunningEvent;
+    public static event Action OnGameplayEvent;
+    public static event Action OnGameOverEvent;
 
     [Serializable]
     public enum GameState
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public static event Action<GameState> OnAfterStateChanged;
 
     [Space]
-    public GameState state;
+    public GameState state = GameState.Preloader;
 
     public GameState State => state;
 
@@ -41,18 +41,34 @@ public class GameManager : MonoBehaviour
         switch (gameState)
         {
             case GameState.Preloader:
+#if UNITY_EDITOR
+                Debug.Log($"Game state: {gameState}");
+#endif
                 HandlePreloader();
                 break;
             case GameState.MainMenu:
+#if UNITY_EDITOR
+                Debug.Log($"Game state: {gameState}");
+#endif
                 HandleMainMenu();
+                sceneLoadManager.StartupSceneLoader();
                 break;
             case GameState.Settings:
+#if UNITY_EDITOR
+                Debug.Log($"Game state: {gameState}");
+#endif
                 HandleSettings();
                 break;
             case GameState.Gameplay:
+#if UNITY_EDITOR
+                Debug.Log($"Game state: {gameState}");
+#endif
                 HandleGameplay();
                 break;
             case GameState.GameOver:
+#if UNITY_EDITOR
+                Debug.Log($"Game state: {gameState}");
+#endif
                 HandleGameOver();
                 break;
             default:
@@ -60,33 +76,30 @@ public class GameManager : MonoBehaviour
         }
 
         OnAfterStateChanged?.Invoke(gameState);
-#if UNITY_EDITOR
-        Debug.Log($"Game state has changed to: {gameState}");
-#endif
     }
 
     private void HandlePreloader()
     {
-        OnPreloaderRunningEvent?.Invoke(this);
+        OnPreloaderRunningEvent?.Invoke();
     }
 
     private void HandleMainMenu()
     {
-        OnMainMenuRunningEvent?.Invoke(this);
+        OnMainMenuRunningEvent?.Invoke();
     }
 
     private void HandleSettings()
     {
-        OnSettingsRunningEvent?.Invoke(this);
+        OnSettingsRunningEvent?.Invoke();
     }
 
     private void HandleGameplay()
     {
-        OnGameplayEvent?.Invoke(this);
+        OnGameplayEvent?.Invoke();
     }
 
     private void HandleGameOver()
     {
-        OnGameOverEvent?.Invoke(this);
+        OnGameOverEvent?.Invoke();
     }
 }

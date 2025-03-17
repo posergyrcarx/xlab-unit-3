@@ -7,6 +7,6 @@ public class Startup : MonoBehaviour
 
     public void Awake()
     {
-        gameManager.ChangeState(GameState.Gameplay);
+        gameManager.ChangeState(GameState.MainMenu);
     }
 }

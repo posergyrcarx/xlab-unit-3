@@ -5,7 +5,12 @@ public sealed class SceneLoadManager : AManager
 {
     [SerializeField] private string[] scenesToLoad;
 
-    private void Awake()
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void StartupSceneLoader()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
 
@@ -23,16 +28,12 @@ public sealed class SceneLoadManager : AManager
 #endif
         }
     }
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
 
     private void LoadScene(string scene)
     {
         SceneManager.LoadScene(scene, LoadSceneMode.Additive);
 #if UNITY_EDITOR
-        Debug.Log($"Loading {scene}");
+        Debug.Log($"Loading scene: {scene}");
 #endif
     }
 

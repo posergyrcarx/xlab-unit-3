@@ -35,24 +35,40 @@ public sealed class UIScreenManager : AManager
     [Space]
     [SerializeField] private UiScreenState uiScreenState;
 
-    public void EnableMainMenu(GameManager gameManager)
+    public void EnableMainMenu()
     {
         UpdateUi(UiScreenState.MainMenu);
+
+#if UNITY_EDITOR
+        Debug.Log("Main Menu UI Loaded");
+#endif
     }
 
-    public void EnableSettingsMenu(GameManager gameManager)
+    public void EnableSettingsMenu()
     {
         UpdateUi(UiScreenState.SettingsMenu);
+
+#if UNITY_EDITOR
+        Debug.Log("Settings UI Loaded");
+#endif
     }
 
-    public void EnableGameplay(GameManager gameManager)
+    public void EnableGameplay()
     {
         UpdateUi(UiScreenState.Gameplay);
+
+#if UNITY_EDITOR
+        Debug.Log("Gameplay UI Loaded");
+#endif
     }
 
-    public void EnableGameOver(GameManager gameManager)
+    public void EnableGameOver()
     {
         UpdateUi(UiScreenState.GameOver);
+
+#if UNITY_EDITOR
+        Debug.Log("GameOver UI Loaded");
+#endif
     }
 
     private void UpdateUi(UiScreenState uiScreenState)
