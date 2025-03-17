@@ -1,6 +1,7 @@
+using Code.Tools;
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public class AManager : MonoBehaviour
+public class AManager : Singleton<MonoBehaviour>
 {
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StoneSpawner : MonoBehaviour
 {
@@ -10,7 +11,30 @@ public class StoneSpawner : MonoBehaviour
     [SerializeField] private float delayMin = 2.00f;
     [SerializeField] private float delayStep = 0.10f;
 
+    [HideInInspector] public UnityEvent OnSceneLoaded;
     private bool coroutineStatus;
+
+    private void Awake()
+    {
+        OnSceneLoaded ??= new UnityEvent();
+        OnSceneLoaded?.Invoke();
+
+#if UNITY_EDITOR
+        Debug.Log("Scene loaded");
+#endif
+    }
+
+    private void Update()
+    {
+        if (true) //Should it spawn 
+        {
+            StartSpawn();
+        }
+        else
+        {
+            EndSpawn();
+        }
+    }
 
     public void StartSpawn()
     {
@@ -38,7 +62,7 @@ public class StoneSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        Instantiate(GetRandomStone(), transform.position, Quaternion.identity);
+        Instantiate(GetRandomStone(), transform.position, Quaternion.identity, transform);
         SpawnRandomDelay();
     }
 
@@ -52,7 +76,9 @@ public class StoneSpawner : MonoBehaviour
     {
         if (stonePrefabs == null)
         {
+#if UNITY_EDITOR
             Debug.LogError("Stone list is empty!");
+#endif
             return null;
         }
         else

@@ -1,39 +1,58 @@
+using System;
 using UnityEngine;
 
 public sealed class UIScreenManager : AManager
 {
     [SerializeField] private GameObject mainMenuCanvas;
-    [SerializeField] private GameObject SettingsMenu;
-    [SerializeField] private GameObject GameplayHud;
+    [SerializeField] private GameObject settingsMenu;
+    [SerializeField] private GameObject gameplayHud;
+    [SerializeField] private GameObject gameOver;
+
+    private void OnEnable()
+    {
+        GameManager.OnMainMenuRunningEvent += EnableMainMenu;
+        GameManager.OnSettingsRunningEvent += EnableSettingsMenu;
+        GameManager.OnGameplayEvent += EnableGameplay;
+        GameManager.OnGameOverEvent += EnableGameOver;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnMainMenuRunningEvent -= EnableMainMenu;
+        GameManager.OnSettingsRunningEvent -= EnableSettingsMenu;
+        GameManager.OnGameplayEvent -= EnableGameplay;
+        GameManager.OnGameOverEvent -= EnableGameOver;
+    }
 
     private enum UiScreenState
     {
         MainMenu,
         SettingsMenu,
-        GameplayHud
+        Gameplay,
+        GameOver
     }
 
     [Space]
     [SerializeField] private UiScreenState uiScreenState;
 
-    private void Awake()
+    public void EnableMainMenu(GameManager gameManager)
     {
-        uiScreenState = UiScreenState.MainMenu;
+        UpdateUi(UiScreenState.MainMenu);
     }
 
-    public void EnableMainMenu()
+    public void EnableSettingsMenu(GameManager gameManager)
     {
-        uiScreenState = UiScreenState.MainMenu;
+        UpdateUi(UiScreenState.SettingsMenu);
     }
 
-    public void EnableSettingsMenu()
+    public void EnableGameplay(GameManager gameManager)
     {
-        uiScreenState = UiScreenState.SettingsMenu;
+        UpdateUi(UiScreenState.Gameplay);
     }
 
-    public void EnableGameplay()
+    public void EnableGameOver(GameManager gameManager)
     {
-        uiScreenState = UiScreenState.GameplayHud;
+        UpdateUi(UiScreenState.GameOver);
     }
 
     private void UpdateUi(UiScreenState uiScreenState)
@@ -42,18 +61,27 @@ public sealed class UIScreenManager : AManager
         {
             case UiScreenState.MainMenu:
                 mainMenuCanvas.SetActive(true);
-                SettingsMenu.SetActive(false);
-                GameplayHud.SetActive(false);
+                settingsMenu.SetActive(false);
+                gameplayHud.SetActive(false);
+                gameOver.SetActive(false);
                 break;
             case UiScreenState.SettingsMenu:
                 mainMenuCanvas.SetActive(false);
-                SettingsMenu.SetActive(true);
-                GameplayHud.SetActive(false);
+                settingsMenu.SetActive(true);
+                gameplayHud.SetActive(false);
+                gameOver.SetActive(false);
                 break;
-            case UiScreenState.GameplayHud:
+            case UiScreenState.Gameplay:
                 mainMenuCanvas.SetActive(false);
-                SettingsMenu.SetActive(false);
-                GameplayHud.SetActive(true);
+                settingsMenu.SetActive(false);
+                gameplayHud.SetActive(true);
+                gameOver.SetActive(false);
+                break;
+            case UiScreenState.GameOver:
+                mainMenuCanvas.SetActive(false);
+                settingsMenu.SetActive(false);
+                gameplayHud.SetActive(false);
+                gameOver.SetActive(true);
                 break;
         }
     }
