@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4338628924791339060}
   - component: {fileID: 7961387434654044353}
-  - component: {fileID: 6536618886221566660}
+  - component: {fileID: 1602709483382173010}
   m_Layer: 0
   m_Name: ScreenManager
   m_TagString: Untagged
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6982153024089286959}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 204.64038, y: 150.33028, z: -28.136013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46,11 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuCanvas: {fileID: 0}
-  SettingsMenu: {fileID: 0}
-  GameplayHud: {fileID: 0}
-  GameOver: {fileID: 0}
+  settingsMenu: {fileID: 0}
+  gameplayHud: {fileID: 0}
+  gameOver: {fileID: 0}
   uiScreenState: 0
---- !u!114 &6536618886221566660
+--- !u!114 &1602709483382173010
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,24 +1,23 @@
+using System.Collections;
+using Code.Tools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public sealed class SceneLoadManager : AManager
+[DisallowMultipleComponent]
+public sealed class SceneLoadManager : MonoBehaviour, IManager
 {
-    [SerializeField] private string[] scenesToLoad;
+    [SerializeField] private string[] scenesToLoad = 
+    { 
+        "LevelGolf"
+    };
 
-    private void OnDisable()
+    public void LoadScenes()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    public void StartupSceneLoader()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-
         if (scenesToLoad != null)
         {
             foreach (string i in scenesToLoad)
             {
-                LoadScene(i);
+                StartCoroutine(LoadSceneAsync(i));
             }
         }
         else
@@ -29,26 +28,29 @@ public sealed class SceneLoadManager : AManager
         }
     }
 
-    private void LoadScene(string scene)
+    IEnumerator LoadSceneAsync(string sceneName)
     {
-        SceneManager.LoadScene(scene, LoadSceneMode.Additive);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+
+        while (!asyncLoad.isDone)
+        {
+            float progress = asyncLoad.progress;
+            Debug.Log("Loading Progress: " + progress);
+
+            yield return null;
+        }
+
 #if UNITY_EDITOR
-        Debug.Log($"Loading scene: {scene}");
+        Debug.Log("Scene Loaded: " + sceneName);
 #endif
+        
+        MakeFirstSceneActive();
+        UnloadPreloader();
     }
 
     private void MakeFirstSceneActive()
     {
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(scenesToLoad[0]));
-    }
-
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.name == scenesToLoad[0])
-        {
-            MakeFirstSceneActive();
-            UnloadPreloader();
-        }
     }
 
     private void UnloadPreloader()

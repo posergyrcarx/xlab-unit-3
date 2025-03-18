@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 5753406343452974352}
   - component: {fileID: 5298672445521503}
   - component: {fileID: 6780042043714853982}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -980,7 +980,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 789870284389985619}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1088,7 +1088,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8066511675725455768}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1409,7 +1409,7 @@ GameObject:
   - component: {fileID: 482170634747415431}
   - component: {fileID: 8457435323941285161}
   - component: {fileID: 3242273813485128305}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1907,7 +1907,7 @@ GameObject:
   - component: {fileID: 1159646392826691178}
   - component: {fileID: 8546603048464728887}
   - component: {fileID: 8869848344028165428}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2002,7 +2002,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 27}
+  m_AnchoredPosition: {x: 0, y: 20}
   m_SizeDelta: {x: 794.9434, y: 54.16031}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8137404608479637118
@@ -2033,19 +2033,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Git
-
-'
+  m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: afbf31dad53ba824d93642e13fd9a5ae, type: 2}
+  m_sharedMaterial: {fileID: -4911340510882498162, guid: afbf31dad53ba824d93642e13fd9a5ae, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 3355508570
+  m_fontColor: {r: 0.35485852, g: 1, b: 0, a: 0.78431374}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2068,7 +2066,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2100,7 +2098,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -23.205978, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2255,7 +2253,7 @@ GameObject:
   - component: {fileID: 4438422280321306292}
   - component: {fileID: 7778794120948498647}
   m_Layer: 5
-  m_Name: Copyright (1)
+  m_Name: MusicBy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2308,7 +2306,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Music by Tame Impala
+  m_text: Music by FOALS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2573,7 +2571,7 @@ GameObject:
   - component: {fileID: 8625488649614069798}
   - component: {fileID: 6022517463840727787}
   - component: {fileID: 7866262838045852156}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2647,7 +2645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3033835307378263468}
   - component: {fileID: 6586322767337636147}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SliderSfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2736,7 +2734,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6887034549355966}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2774,7 +2772,7 @@ GameObject:
   - component: {fileID: 8193258265160702648}
   - component: {fileID: 6618206723027392633}
   - component: {fileID: 8909837579467961796}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2847,7 +2845,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8628379576260369704}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2884,7 +2882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3502575024684824071}
   - component: {fileID: 3195425844936301495}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SliderVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2985,7 +2983,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3420235620094954495}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3201,7 +3199,7 @@ GameObject:
   - component: {fileID: 614006970436192608}
   - component: {fileID: 4359226522152761710}
   - component: {fileID: 6910236105682827317}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3414,7 +3412,7 @@ GameObject:
   - component: {fileID: 4131613582499208791}
   - component: {fileID: 4600852703650238005}
   - component: {fileID: 5921721939494386510}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3759,7 +3757,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3794239002602104832}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3943,7 +3941,7 @@ GameObject:
   - component: {fileID: 5529444647524576995}
   - component: {fileID: 5494821343077854864}
   - component: {fileID: 4193832193411959227}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4016,7 +4014,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1471790167262308025}
-  - component: {fileID: 5376510809525192041}
   - component: {fileID: 1592214514666234430}
   - component: {fileID: 7743977831442126213}
   - component: {fileID: 4333900050392283530}
@@ -4027,7 +4024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1471790167262308025
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4055,18 +4052,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &5376510809525192041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7708730903648038757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0217374290ed6424995367a6681d452b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!223 &1592214514666234430
 Canvas:
   m_ObjectHideFlags: 0
@@ -4155,7 +4140,7 @@ GameObject:
   - component: {fileID: 1008385716093470275}
   - component: {fileID: 8336753126714739011}
   - component: {fileID: 70168854091358769}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4365,13 +4350,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2692732976485209656}
   - component: {fileID: 7008875214629293922}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvases
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2692732976485209656
 Transform:
   m_ObjectHideFlags: 0

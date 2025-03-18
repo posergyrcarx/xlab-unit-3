@@ -1,12 +1,13 @@
 using System;
+using Code.Tools;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+[DisallowMultipleComponent]
+public class GameManager : MonoBehaviour, IManager
 {
     [SerializeField] private SceneLoadManager sceneLoadManager;
-    [SerializeField] private UIScreenManager uisManager;
+    [SerializeField] private UIScreenManager uiManager;
 
-    public static event Action OnPreloaderRunningEvent;
     public static event Action OnMainMenuRunningEvent;
     public static event Action OnSettingsRunningEvent;
     public static event Action OnGameplayEvent;
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour
     [Serializable]
     public enum GameState
     {
-        Preloader,
+        StartUp,
         MainMenu,
         Settings,
         Gameplay,
@@ -24,34 +25,25 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] 
     public static event Action<GameState> OnBeforeStateChanged;
+    
     [HideInInspector]
     public static event Action<GameState> OnAfterStateChanged;
 
     [Space]
-    public GameState state = GameState.Preloader;
+    public GameState state = GameState.StartUp;
 
-    public GameState State => state;
-
-    public void ChangeState(GameState gameState)
+    public void SetState(GameState gameState)
     {
         OnBeforeStateChanged?.Invoke(gameState);
 
-        state = gameState;
-
         switch (gameState)
         {
-            case GameState.Preloader:
-#if UNITY_EDITOR
-                Debug.Log($"Game state: {gameState}");
-#endif
-                HandlePreloader();
-                break;
             case GameState.MainMenu:
 #if UNITY_EDITOR
                 Debug.Log($"Game state: {gameState}");
 #endif
+                sceneLoadManager.LoadScenes();
                 HandleMainMenu();
-                sceneLoadManager.StartupSceneLoader();
                 break;
             case GameState.Settings:
 #if UNITY_EDITOR
@@ -76,11 +68,6 @@ public class GameManager : MonoBehaviour
         }
 
         OnAfterStateChanged?.Invoke(gameState);
-    }
-
-    private void HandlePreloader()
-    {
-        OnPreloaderRunningEvent?.Invoke();
     }
 
     private void HandleMainMenu()

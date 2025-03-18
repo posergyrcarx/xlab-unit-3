@@ -18,10 +18,6 @@ public class StoneSpawner : MonoBehaviour
     {
         OnSceneLoaded ??= new UnityEvent();
         OnSceneLoaded?.Invoke();
-
-#if UNITY_EDITOR
-        Debug.Log("Scene loaded");
-#endif
     }
 
     private void Update()

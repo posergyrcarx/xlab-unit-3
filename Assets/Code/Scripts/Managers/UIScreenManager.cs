@@ -1,7 +1,8 @@
-using System;
+using Code.Tools;
 using UnityEngine;
 
-public sealed class UIScreenManager : AManager
+[DisallowMultipleComponent]
+public class UIScreenManager : PersistentSingleton<MonoBehaviour>, IManager
 {
     [SerializeField] private GameObject mainMenuCanvas;
     [SerializeField] private GameObject settingsMenu;
@@ -29,7 +30,7 @@ public sealed class UIScreenManager : AManager
         MainMenu,
         SettingsMenu,
         Gameplay,
-        GameOver
+        GameOver 
     }
 
     [Space]
@@ -40,7 +41,7 @@ public sealed class UIScreenManager : AManager
         UpdateUi(UiScreenState.MainMenu);
 
 #if UNITY_EDITOR
-        Debug.Log("Main Menu UI Loaded");
+        Debug.Log("UI Loaded: Main Menu");
 #endif
     }
 
@@ -49,7 +50,7 @@ public sealed class UIScreenManager : AManager
         UpdateUi(UiScreenState.SettingsMenu);
 
 #if UNITY_EDITOR
-        Debug.Log("Settings UI Loaded");
+        Debug.Log("UI Loaded: Settings");
 #endif
     }
 
@@ -58,7 +59,7 @@ public sealed class UIScreenManager : AManager
         UpdateUi(UiScreenState.Gameplay);
 
 #if UNITY_EDITOR
-        Debug.Log("Gameplay UI Loaded");
+        Debug.Log("UI Loaded: Gameplay");
 #endif
     }
 
@@ -67,7 +68,7 @@ public sealed class UIScreenManager : AManager
         UpdateUi(UiScreenState.GameOver);
 
 #if UNITY_EDITOR
-        Debug.Log("GameOver UI Loaded");
+        Debug.Log("UI Loaded: GameOver");
 #endif
     }
 

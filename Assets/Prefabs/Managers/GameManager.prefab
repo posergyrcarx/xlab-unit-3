@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneLoadManager: {fileID: 6465955869623806316}
-  uisManager: {fileID: 7961387434654044353, guid: 41dc34046224d0d48951469f85f590d4, type: 3}
+  uiManager: {fileID: 7062248039864476793}
+  state: 0
 --- !u!114 &7098723537261854703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,15 +118,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4338628924791339060, guid: 41dc34046224d0d48951469f85f590d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 204.64038
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4338628924791339060, guid: 41dc34046224d0d48951469f85f590d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 150.33028
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4338628924791339060, guid: 41dc34046224d0d48951469f85f590d4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -28.136013
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4338628924791339060, guid: 41dc34046224d0d48951469f85f590d4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -159,7 +160,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScreensManager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1602709483382173010, guid: 41dc34046224d0d48951469f85f590d4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -169,3 +171,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4338628924791339060, guid: 41dc34046224d0d48951469f85f590d4, type: 3}
   m_PrefabInstance: {fileID: 900335766587192504}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7062248039864476793 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7961387434654044353, guid: 41dc34046224d0d48951469f85f590d4, type: 3}
+  m_PrefabInstance: {fileID: 900335766587192504}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d165828712d98b343b6f2bdaaef61c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
