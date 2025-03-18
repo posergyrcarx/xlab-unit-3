@@ -45,12 +45,6 @@ public class GameManager : MonoBehaviour, IManager
                 sceneLoadManager.LoadScenes();
                 HandleMainMenu();
                 break;
-            case GameState.Settings:
-#if UNITY_EDITOR
-                Debug.Log($"Game state: {gameState}");
-#endif
-                HandleSettings();
-                break;
             case GameState.Gameplay:
 #if UNITY_EDITOR
                 Debug.Log($"Game state: {gameState}");
@@ -73,11 +67,6 @@ public class GameManager : MonoBehaviour, IManager
     private void HandleMainMenu()
     {
         OnMainMenuRunningEvent?.Invoke();
-    }
-
-    private void HandleSettings()
-    {
-        OnSettingsRunningEvent?.Invoke();
     }
 
     private void HandleGameplay()
