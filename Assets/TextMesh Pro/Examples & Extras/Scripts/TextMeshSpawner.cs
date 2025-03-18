@@ -1,35 +1,35 @@
+using TMPro;
 using UnityEngine;
-using System.Collections;
+using UnityEngine.Serialization;
 
-
-namespace TMPro.Examples
+namespace TextMesh_Pro.Examples___Extras.Scripts
 {
     
     public class TextMeshSpawner : MonoBehaviour
     {
 
-        public int SpawnType = 0;
-        public int NumberOfNPC = 12;
+        [FormerlySerializedAs("SpawnType")] public int spawnType = 0;
+        [FormerlySerializedAs("NumberOfNPC")] public int numberOfNpc = 12;
 
-        public Font TheFont;
+        [FormerlySerializedAs("TheFont")] public Font theFont;
 
-        private TextMeshProFloatingText floatingText_Script;
+        private TextMeshProFloatingText _floatingTextScript;
 
-        void Awake()
+        private void Awake()
         {
 
         }
 
-        void Start()
+        private void Start()
         {
 
-            for (int i = 0; i < NumberOfNPC; i++)
+            for (var i = 0; i < numberOfNpc; i++)
             {
-                if (SpawnType == 0)
+                if (spawnType == 0)
                 {
                     // TextMesh Pro Implementation     
                     //go.transform.localScale = new Vector3(2, 2, 2);
-                    GameObject go = new GameObject(); //"NPC " + i);
+                    var go = new GameObject(); //"NPC " + i);
                     go.transform.position = new Vector3(Random.Range(-95f, 95f), 0.5f, Random.Range(-95f, 95f));
 
                     //go.transform.position = new Vector3(0, 1.01f, 0);
@@ -37,7 +37,7 @@ namespace TMPro.Examples
                     //go.renderer.receiveShadows = false;
                     //go.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
-                    TextMeshPro textMeshPro = go.AddComponent<TextMeshPro>();
+                    var textMeshPro = go.AddComponent<TextMeshPro>();
                     //textMeshPro.FontAsset = Resources.Load("Fonts & Materials/LiberationSans SDF", typeof(TextMeshProFont)) as TextMeshProFont;
                     //textMeshPro.anchor = AnchorPositions.Bottom;
                     textMeshPro.fontSize = 96;
@@ -48,20 +48,20 @@ namespace TMPro.Examples
 
 
                     // Spawn Floating Text
-                    floatingText_Script = go.AddComponent<TextMeshProFloatingText>();
-                    floatingText_Script.SpawnType = 0;
+                    _floatingTextScript = go.AddComponent<TextMeshProFloatingText>();
+                    _floatingTextScript.spawnType = 0;
                 }
                 else
                 {
                     // TextMesh Implementation
-                    GameObject go = new GameObject(); //"NPC " + i);
+                    var go = new GameObject(); //"NPC " + i);
                     go.transform.position = new Vector3(Random.Range(-95f, 95f), 0.5f, Random.Range(-95f, 95f));
 
                     //go.transform.position = new Vector3(0, 1.01f, 0);
 
-                    TextMesh textMesh = go.AddComponent<TextMesh>();
-                    textMesh.GetComponent<Renderer>().sharedMaterial = TheFont.material;
-                    textMesh.font = TheFont;
+                    var textMesh = go.AddComponent<TextMesh>();
+                    textMesh.GetComponent<Renderer>().sharedMaterial = theFont.material;
+                    textMesh.font = theFont;
                     textMesh.anchor = TextAnchor.LowerCenter;
                     textMesh.fontSize = 96;
 
@@ -69,8 +69,8 @@ namespace TMPro.Examples
                     textMesh.text = "!";
 
                     // Spawn Floating Text
-                    floatingText_Script = go.AddComponent<TextMeshProFloatingText>();
-                    floatingText_Script.SpawnType = 1;
+                    _floatingTextScript = go.AddComponent<TextMeshProFloatingText>();
+                    _floatingTextScript.spawnType = 1;
                 }
             }
         }

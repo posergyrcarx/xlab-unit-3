@@ -1,6 +1,7 @@
-using UnityEngine;
-
-public interface IPlayer
+namespace Code.Interfaces
 {
+    public interface IPlayer
+    {
 
+    }
 }

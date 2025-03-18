@@ -1,86 +1,90 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
-public class StoneSpawner : MonoBehaviour
+namespace Code.Scripts.Gameplay
 {
-    [SerializeField] GameObject[] stonePrefabs;
-    [Space]
-    [SerializeField] private float delayInSec = 0.50f;
-    [SerializeField] private float delayMax = 2.00f;
-    [SerializeField] private float delayMin = 2.00f;
-    [SerializeField] private float delayStep = 0.10f;
-
-    [HideInInspector] public UnityEvent OnSceneLoaded;
-    private bool coroutineStatus;
-
-    private void Awake()
+    public class StoneSpawner : MonoBehaviour
     {
-        OnSceneLoaded ??= new UnityEvent();
-        OnSceneLoaded?.Invoke();
-    }
+        [SerializeField] private GameObject[] stonePrefabs;
+        [Space]
+        [SerializeField] private float delayInSec = 0.50f;
+        [SerializeField] private float delayMax = 2.00f;
+        [SerializeField] private float delayMin = 2.00f;
+        [SerializeField] private float delayStep = 0.10f;
 
-    private void Update()
-    {
-        if (true) //Should it spawn 
+        [FormerlySerializedAs("OnSceneLoaded")] [HideInInspector] public UnityEvent onSceneLoaded;
+        private bool _coroutineStatus;
+
+        private void Awake()
         {
-            StartSpawn();
+            onSceneLoaded ??= new UnityEvent();
+            onSceneLoaded?.Invoke();
         }
-        else
-        {
-            EndSpawn();
-        }
-    }
 
-    public void StartSpawn()
-    {
-        if (coroutineStatus != true)
+        private void Update()
         {
-            StartCoroutine(StartStoneProcess());
+            if (true) //Should it spawn 
+            {
+                StartSpawn();
+            }
+            else
+            {
+                EndSpawn();
+            }
+        }
+
+        private void StartSpawn()
+        {
+            if (_coroutineStatus != true)
+            {
+                StartCoroutine(StartStoneProcess());
+                SpawnRandomDelay();
+            }
+        }
+
+        private void EndSpawn()
+        {
+            StopCoroutine(StartStoneProcess());
+        }
+
+        private IEnumerator StartStoneProcess()
+        {
+            _coroutineStatus = true;
+
+            yield return new WaitForSeconds(delayInSec);
+            Spawn();
+
+            _coroutineStatus = false;
+        }
+
+        private void Spawn()
+        {
+            Instantiate(GetRandomStone(), transform.position, Quaternion.identity, transform);
             SpawnRandomDelay();
         }
-    }
 
-    public void EndSpawn()
-    {
-        StopCoroutine(StartStoneProcess());
-    }
-
-    private IEnumerator StartStoneProcess()
-    {
-        coroutineStatus = true;
-
-        yield return new WaitForSeconds(delayInSec);
-        Spawn();
-
-        coroutineStatus = false;
-    }
-
-    private void Spawn()
-    {
-        Instantiate(GetRandomStone(), transform.position, Quaternion.identity, transform);
-        SpawnRandomDelay();
-    }
-
-    private void SpawnRandomDelay()
-    {
-        delayInSec = Random.Range(delayMin, delayMax);
-        delayMax = Mathf.Max(delayMin, delayMax - delayStep);
-    }
-
-    private GameObject GetRandomStone()
-    {
-        if (stonePrefabs == null)
+        private void SpawnRandomDelay()
         {
-#if UNITY_EDITOR
-            Debug.LogError("Stone list is empty!");
-#endif
-            return null;
+            delayInSec = Random.Range(delayMin, delayMax);
+            delayMax = Mathf.Max(delayMin, delayMax - delayStep);
         }
-        else
+
+        private GameObject GetRandomStone()
         {
-            var index = Random.Range(0, stonePrefabs.Length);
-            return stonePrefabs[index];
+            if (stonePrefabs == null)
+            {
+#if UNITY_EDITOR
+                Debug.LogError("Stone list is empty!");
+#endif
+                return null;
+            }
+            else
+            {
+                var index = Random.Range(0, stonePrefabs.Length);
+                return stonePrefabs[index];
+            }
         }
     }
 }

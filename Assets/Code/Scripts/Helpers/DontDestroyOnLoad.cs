@@ -1,10 +1,13 @@
 using UnityEngine;
 
-[DisallowMultipleComponent]
-public class DontDestroyOnLoad : MonoBehaviour
+namespace Code.Scripts.Helpers
 {
-    void Awake()
+    [DisallowMultipleComponent]
+    public class DontDestroyOnLoad : MonoBehaviour
     {
-        DontDestroyOnLoad(gameObject);
+        private void Awake()
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }

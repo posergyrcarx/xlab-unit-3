@@ -1,12 +1,16 @@
+using Code.Scripts.Managers;
 using UnityEngine;
-using static GameManager;
+using static Code.Scripts.Managers.GameManager;
 
-public class Startup : MonoBehaviour
+namespace Code.Scripts
 {
-    [SerializeField] private GameManager gameManager;
-
-    public void Awake()
+    public class Startup : MonoBehaviour
     {
-        gameManager.SetState(gameManager.state = GameState.MainMenu);
+        [SerializeField] private GameManager gameManager;
+
+        public void Awake()
+        {
+            gameManager.SetState(gameManager.state = GameState.MainMenu);
+        }
     }
 }

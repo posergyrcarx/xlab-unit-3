@@ -1,6 +1,7 @@
-using UnityEngine;
-
-public interface IManager
+namespace Code.Interfaces
 {
+    public interface IManager
+    {
 
+    }
 }

@@ -1,61 +1,67 @@
 using System.Collections;
-using Code.Tools;
+using Code.Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[DisallowMultipleComponent]
-public sealed class SceneLoadManager : MonoBehaviour, IManager
+namespace Code.Scripts.Managers
 {
-    [SerializeField] private string[] scenesToLoad = 
-    { 
-        "LevelGolf"
-    };
-
-    public void LoadScenes()
+    [DisallowMultipleComponent]
+    public sealed class SceneLoadManager : MonoBehaviour, IManager
     {
-        if (scenesToLoad != null)
+        [SerializeField] private string[] scenesToLoad = 
+        { 
+            "LevelGolf"
+        };
+
+        public void LoadScenes()
         {
-            foreach (string i in scenesToLoad)
+            if (scenesToLoad != null)
             {
-                StartCoroutine(LoadSceneAsync(i));
+                foreach (var i in scenesToLoad)
+                {
+                    StartCoroutine(LoadSceneAsync(i));
+                }
+            }
+            else
+            {
+#if UNITY_EDITOR
+                Debug.LogError("No scenes has been set");
+#endif
             }
         }
-        else
+
+        private IEnumerator LoadSceneAsync(string sceneName)
         {
+            var asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+
+            while (asyncLoad is { isDone: false })
+            {
+                var progress = asyncLoad.progress;
+                
 #if UNITY_EDITOR
-            Debug.LogError("No scenes has been set");
+                Debug.Log("Loading Progress: " + progress);
 #endif
-        }
-    }
 
-    IEnumerator LoadSceneAsync(string sceneName)
-    {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-
-        while (!asyncLoad.isDone)
-        {
-            float progress = asyncLoad.progress;
-            Debug.Log("Loading Progress: " + progress);
-
-            yield return null;
-        }
+                yield return null;
+            }
 
 #if UNITY_EDITOR
-        Debug.Log("Scene Loaded: " + sceneName);
+            Debug.Log("Scene Loaded: " + sceneName);
 #endif
         
-        MakeFirstSceneActive();
-        UnloadPreloader();
-    }
+            MakeFirstSceneActive();
+            UnloadPreloader();
+        }
 
-    private void MakeFirstSceneActive()
-    {
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(scenesToLoad[0]));
-    }
+        private void MakeFirstSceneActive()
+        {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(scenesToLoad[0]));
+        }
 
-    private void UnloadPreloader()
-    {
-        var preloader = SceneManager.GetSceneByName("Preloader");
-        SceneManager.UnloadSceneAsync(preloader);
+        private static void UnloadPreloader()
+        {
+            var preloader = SceneManager.GetSceneByName("Preloader");
+            SceneManager.UnloadSceneAsync(preloader);
+        }
     }
 }
