@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Player Specification", menuName = "Specifications/Player Specs", order = 1)]
+[CreateAssetMenu(fileName = "Player Specification", menuName = "Specification/Player Specification", order = 1)]
 public class SpecsPlayer : ASpecs
 {
     [SerializeField] float punchStrength;

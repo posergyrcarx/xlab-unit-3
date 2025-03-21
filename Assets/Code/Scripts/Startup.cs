@@ -7,6 +7,6 @@ public class Startup : MonoBehaviour
 
     public void Awake()
     {
-        gameManager.SetState(gameManager.state = GameState.MainMenu);
+        gameManager.SetState(gameManager.gameState = GameState.Preloader);
     }
 }

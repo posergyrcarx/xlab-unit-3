@@ -261,17 +261,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f4c92cb31cfa154c99b09483eb88717, type: 3}
---- !u!114 &565609374 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6465955869623806316, guid: af35a8192d984704e812913fe23c56e7, type: 3}
-  m_PrefabInstance: {fileID: 1410690290587306995}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61305942c2f80884ba0534d13e9a9e09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &571593178 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 619159165908984913, guid: 506a6639699a85140a1d42f93661535a, type: 3}
@@ -341,10 +330,6 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1410690290587306996}
-    - target: {fileID: 3455494471729246420, guid: ac279e26d18c1a645be8a47593df2ebe, type: 3}
-      propertyPath: sceneLoadManager
-      value: 
-      objectReference: {fileID: 565609374}
     - target: {fileID: 4180539732866679066, guid: ac279e26d18c1a645be8a47593df2ebe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -426,10 +411,6 @@ PrefabInstance:
       propertyPath: mainMenuCanvas
       value: 
       objectReference: {fileID: 743230816}
-    - target: {fileID: 7098723537261854703, guid: af35a8192d984704e812913fe23c56e7, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7278734316340682251, guid: af35a8192d984704e812913fe23c56e7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -470,10 +451,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7825907819231632791, guid: af35a8192d984704e812913fe23c56e7, type: 3}
-      propertyPath: m_Name
-      value: ScreenManager
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -502,6 +479,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 852433681}
+    - target: {fileID: 1047054440269550984, guid: 506a6639699a85140a1d42f93661535a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -210
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047054440269550984, guid: 506a6639699a85140a1d42f93661535a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 265
+      objectReference: {fileID: 0}
     - target: {fileID: 2692732976485209656, guid: 506a6639699a85140a1d42f93661535a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -546,6 +531,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 852433681}
+    - target: {fileID: 7708730903648038757, guid: 506a6639699a85140a1d42f93661535a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8120410030611199858, guid: 506a6639699a85140a1d42f93661535a, type: 3}
       propertyPath: m_Name
       value: Canvases

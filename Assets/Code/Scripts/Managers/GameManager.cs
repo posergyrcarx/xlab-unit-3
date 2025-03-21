@@ -1,36 +1,43 @@
-using System;
 using Code.Tools;
+using System;
 using UnityEngine;
 
 [DisallowMultipleComponent]
 public class GameManager : MonoBehaviour, IManager
 {
-    [SerializeField] private SceneLoadManager sceneLoadManager;
-    [SerializeField] private UIScreenManager uiManager;
+    public GameState gameState = GameState.Preloader;
+    [Space]
+    [SerializeField] private SceneLoader sceneLoader;
+    [SerializeField] private ScreenManager screenManager;
+    [Space]
+    [SerializeField] private ListScenes listScenes;
+    [SerializeField] private string[] loadScenes;
 
-    public static event Action OnMainMenuRunningEvent;
-    public static event Action OnSettingsRunningEvent;
+    public static event Action OnMainMenuEvent;
+    public static event Action OnSettingsEvent;
     public static event Action OnGameplayEvent;
     public static event Action OnGameOverEvent;
+
+    public static event Action<GameState> OnBeforeStateChanged;
+    public static event Action<GameState> OnAfterStateChanged;
 
     [Serializable]
     public enum GameState
     {
-        StartUp,
-        MainMenu,
-        Settings,
-        Gameplay,
-        GameOver
+        Preloader = 0,          // Preloader state
+        MainMenu,               // Main menu and settings
+        Gameplay,               // Main gameplay
+        GameOver                // Game over and saving score
     }
 
-    [HideInInspector] 
-    public static event Action<GameState> OnBeforeStateChanged;
-    
-    [HideInInspector]
-    public static event Action<GameState> OnAfterStateChanged;
-
-    [Space]
-    public GameState state = GameState.StartUp;
+    private void OnEnable()
+    {
+        DebugMenu.OnReloadGameEvent += ReloadGame;
+    }
+    private void OnDisable()
+    {
+        DebugMenu.OnReloadGameEvent -= ReloadGame;
+    }
 
     public void SetState(GameState gameState)
     {
@@ -38,35 +45,40 @@ public class GameManager : MonoBehaviour, IManager
 
         switch (gameState)
         {
+            case GameState.Preloader:
+                LoadStatusDebugMessage(GameState.Preloader);
+                HandlePreloader();
+                break;
             case GameState.MainMenu:
-#if UNITY_EDITOR
-                Debug.Log($"Game state: {gameState}");
-#endif
-                sceneLoadManager.LoadScenes();
+                LoadStatusDebugMessage(GameState.MainMenu);
                 HandleMainMenu();
                 break;
             case GameState.Gameplay:
-#if UNITY_EDITOR
-                Debug.Log($"Game state: {gameState}");
-#endif
+                LoadStatusDebugMessage(GameState.Gameplay);
                 HandleGameplay();
                 break;
             case GameState.GameOver:
-#if UNITY_EDITOR
-                Debug.Log($"Game state: {gameState}");
-#endif
+                LoadStatusDebugMessage(GameState.GameOver);
                 HandleGameOver();
                 break;
             default:
-                throw new ArgumentOutOfRangeException(nameof(gameState), state, null);
+                break;
         }
 
         OnAfterStateChanged?.Invoke(gameState);
     }
 
+    private void HandlePreloader()
+    {
+        loadScenes = listScenes.ScenesToLoad;
+
+        sceneLoader.ChangeSceneSet(loadScenes);
+        SetState(GameState.MainMenu);
+    }
+
     private void HandleMainMenu()
     {
-        OnMainMenuRunningEvent?.Invoke();
+        OnMainMenuEvent?.Invoke();
     }
 
     private void HandleGameplay()
@@ -77,5 +89,15 @@ public class GameManager : MonoBehaviour, IManager
     private void HandleGameOver()
     {
         OnGameOverEvent?.Invoke();
+    }
+
+    private void ReloadGame()
+    {
+        SetState(GameState.Preloader);
+    }
+
+    private void LoadStatusDebugMessage(GameState gameState)
+    {
+        this.LogInfo("Game state: " + gameState);
     }
 }

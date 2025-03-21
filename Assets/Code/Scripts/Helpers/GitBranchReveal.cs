@@ -41,7 +41,7 @@ namespace Code.Tools
         }
         private void DebugApplicationVersion()
         {
-            Debug.Log($"Application version: {Application.version}");
+            this.LogInfo($"Application version: {Application.version}");
         }
 #endif
 

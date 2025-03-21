@@ -47,9 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31fec12eacf0f054fb092d7db04a2d1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneLoadManager: {fileID: 6465955869623806316}
-  uiManager: {fileID: 7062248039864476793}
-  state: 0
+  gameState: 0
+  sceneLoader: {fileID: 8076449276391874842}
+  screenManager: {fileID: 7062248039864476793}
+  listScenes: {fileID: 11400000, guid: ddc301e166fa3fa4b997aef29cb0a923, type: 2}
+  loadedScenes: []
 --- !u!114 &7098723537261854703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8056051678014156422}
-  - component: {fileID: 6465955869623806316}
+  - component: {fileID: 8076449276391874842}
   m_Layer: 0
   m_Name: SceneLoad
   m_TagString: Untagged
@@ -94,7 +96,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7278734316340682251}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6465955869623806316
+--- !u!114 &8076449276391874842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,11 +105,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8391795786523443520}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61305942c2f80884ba0534d13e9a9e09, type: 3}
+  m_Script: {fileID: 11500000, guid: 18ebb9dcdf29eb04c9d162ca7f7c1f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenesToLoad:
-  - LevelGolf
 --- !u!1001 &900335766587192504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,7 +158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6982153024089286959, guid: 41dc34046224d0d48951469f85f590d4, type: 3}
       propertyPath: m_Name
-      value: ScreensManager
+      value: ScreenManager
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1602709483382173010, guid: 41dc34046224d0d48951469f85f590d4, type: 3}

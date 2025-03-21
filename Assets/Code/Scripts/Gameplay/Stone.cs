@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class Stone : MonoBehaviour
 {
-    [SerializeField] SpecsStone specsStone;
+    [SerializeField] SpecsObject specsStone;
     public static System.Action OnCollisionStone;
-
-
 }
