@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Tools
+namespace Code.Scripts.Helpers
 {
     /// <summary>
     /// A static instance is similar to a singleton, but instead of destroying an new

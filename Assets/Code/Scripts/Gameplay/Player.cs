@@ -1,12 +1,16 @@
+using Code.ScriptableObjects;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+namespace Code.Scripts.Gameplay
 {
-    [SerializeField] SpecsPlayer specsPlayer;
-    private float punchStrength;
-
-    private void Start()
+    public class Player : MonoBehaviour
     {
-        punchStrength = specsPlayer.Strength;
+        [SerializeField] private SpecsPlayer specsPlayer;
+        private float _punchStrength;
+
+        private void Start()
+        {
+            _punchStrength = specsPlayer.Strength;
+        }
     }
 }

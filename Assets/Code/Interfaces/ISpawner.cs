@@ -1,6 +1,7 @@
-using UnityEngine;
-
-public interface ISpawner
+namespace Code.Interfaces
 {
+    public interface ISpawner
+    {
 
+    }
 }

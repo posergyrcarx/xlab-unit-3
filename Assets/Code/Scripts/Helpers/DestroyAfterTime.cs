@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class DestroyAfterTime : MonoBehaviour
+namespace Code.Scripts.Helpers
 {
-    [SerializeField] float deleteAfterSec = 5.00f;
-
-    private void Awake()
+    public class DestroyAfterTime : MonoBehaviour
     {
-        Destroy(gameObject, deleteAfterSec);
+        [SerializeField] private float deleteAfterSec = 5.00f;
+
+        private void Awake()
+        {
+            Destroy(gameObject, deleteAfterSec);
+        }
     }
 }

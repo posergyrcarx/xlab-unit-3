@@ -1,21 +1,23 @@
 using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
-public class UIButtonBlink : MonoBehaviour
+namespace Code.Scripts.Ui
 {
-    [SerializeField] private Color colorToBlink = Color.white;
-    [SerializeField] private Image imageComponent;
-
-    private Color colorDefault;
-
-    private void Start()
+    public class UIButtonBlink : MonoBehaviour
     {
-        colorDefault = imageComponent.color;
-    }
+        [SerializeField] private Color colorToBlink = Color.white;
+        [SerializeField] private Image imageComponent;
 
-    private void Update()
-    {
-        imageComponent.color = Color.Lerp(colorDefault, colorToBlink, Mathf.Sin(Time.time * 5.00f));
+        private Color _colorDefault;
+
+        private void Start()
+        {
+            _colorDefault = imageComponent.color;
+        }
+
+        private void Update()
+        {
+            imageComponent.color = Color.Lerp(_colorDefault, colorToBlink, Mathf.Sin(Time.time * 5.00f));
+        }
     }
 }
