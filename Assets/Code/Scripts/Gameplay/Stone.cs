@@ -1,7 +1,11 @@
+using Code.ScriptableObjects;
 using UnityEngine;
 
-public class Stone : MonoBehaviour
+namespace Code.Scripts.Gameplay
 {
-    [SerializeField] SpecsObject specsStone;
-    public static System.Action OnCollisionStone;
+    public class Stone : MonoBehaviour
+    {
+        [SerializeField] private SpecsObject specsStone;
+        public static System.Action OnCollisionStone;
+    }
 }

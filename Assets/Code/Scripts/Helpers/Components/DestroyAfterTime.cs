@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Scripts.Helpers
+namespace Code.Scripts.Helpers.Components
 {
     public class DestroyAfterTime : MonoBehaviour
     {

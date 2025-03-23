@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
-namespace AYellowpaper.SerializedCollections
+namespace Packages.SerializedCollections.Sample
 {
     public class SerializedDictionarySample : MonoBehaviour
     {

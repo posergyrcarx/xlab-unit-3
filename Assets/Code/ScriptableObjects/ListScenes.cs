@@ -1,8 +1,11 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Scenes List", menuName = "List/Scenes List")]
-public class ListScenes : AList
+namespace Code.ScriptableObjects
 {
-    [SerializeField] private string[] scenesToLoad;
-    public string[] ScenesToLoad => scenesToLoad;
+    [CreateAssetMenu(fileName = "Scenes List", menuName = "List/Scenes List")]
+    public class ListScenes : AList
+    {
+        [SerializeField] private string[] scenesToLoad;
+        public string[] ScenesToLoad => scenesToLoad;
+    }
 }

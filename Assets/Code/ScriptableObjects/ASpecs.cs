@@ -1,6 +1,9 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Base Specification", menuName = "Specification/Base Specification", order = 0)]
-public class ASpecs : ScriptableObject
+namespace Code.ScriptableObjects
 {
+    [CreateAssetMenu(fileName = "Base Specification", menuName = "Specification/Base Specification", order = 0)]
+    public class ASpecs : ScriptableObject
+    {
+    }
 }

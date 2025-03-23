@@ -1,18 +1,22 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Object Specification",  menuName = "Specification/Object Specification", order = 2)]
-public class SpecsObject : ASpecs
+namespace Code.ScriptableObjects
 {
-    [SerializeField] MassType massType;
-    [Space]
-    [SerializeField] float mass;
-    [SerializeField] Vector2 randomMass;
-
-    [Serializable]
-    public enum MassType
+    [CreateAssetMenu(fileName = "Object Specification",  menuName = "Specification/Object Specification", order = 2)]
+    public class SpecsObject : ASpecs
     {
-        Float,
-        Random
+        [SerializeField] private MassType massType;
+        [Space]
+        [SerializeField]
+        private float mass;
+        [SerializeField] private Vector2 randomMass;
+
+        [Serializable]
+        public enum MassType
+        {
+            Float,
+            Random
+        }
     }
 }

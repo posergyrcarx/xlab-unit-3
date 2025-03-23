@@ -1,3 +1,4 @@
+using Code.ScriptableObjects;
 using UnityEngine;
 
 namespace Code.Scripts.Gameplay

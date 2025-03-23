@@ -1,7 +1,7 @@
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
-namespace Code.Gameplay.Level
+namespace Code.Scripts.Gameplay
 {
     public class Spawner : MonoBehaviour
     {

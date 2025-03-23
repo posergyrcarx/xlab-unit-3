@@ -2,21 +2,24 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-public class DebugMenu : MonoBehaviour
+namespace Code.Scripts.Debug
 {
-    public static event Action OnUpdateUiEvent;
-    public static event Action OnReloadGameEvent;
-
-    [MenuItem("Debug/Reload Game")]
-    private static void ReloadGame()
+    public class DebugMenu : MonoBehaviour
     {
-        OnReloadGameEvent.Invoke();
-    }
+        public static event Action OnUpdateUiEvent;
+        public static event Action OnReloadGameEvent;
 
-    [MenuItem("Debug/Reload Screen (UI)")]
-    private static void ReloadScreen()
-    {
-        OnUpdateUiEvent.Invoke();
+        [MenuItem("Debug/Reload Game")]
+        private static void ReloadGame()
+        {
+            OnReloadGameEvent.Invoke();
+        }
+
+        [MenuItem("Debug/Reload Screen (UI)")]
+        private static void ReloadScreen()
+        {
+            OnUpdateUiEvent.Invoke();
+        }
     }
 }
 

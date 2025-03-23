@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Code.Scripts.Helpers
+namespace Code.Scripts.Helpers.GitWorkflow
 {
     public static class GitBranchFind
     {

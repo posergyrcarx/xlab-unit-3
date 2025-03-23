@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Code.Scripts.Helpers
+namespace Code.Scripts.Helpers.GitWorkflow
 {
     public class GitBranchReveal: MonoBehaviour
     {      
